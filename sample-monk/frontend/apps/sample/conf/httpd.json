@@ -1,0 +1,41 @@
+{
+      "extensions": [
+          "redirect"
+      ],
+      "redirects": [
+          {
+              "^http(.*?)://([^/]+?)/index.html$": "http{{{$1}}}://{{{$2}}}/apps/{{{appname}}}/index.html"
+          },
+          {
+              "^http(.*?)://([^/]+?)/$": "http{{{$1}}}://{{{$2}}}/apps/{{{appname}}}/index.html"
+          },
+          {
+              "^http(.*?)://([^/]+?)$": "http{{{$1}}}://{{{$2}}}/apps/{{{appname}}}/index.html"
+          },
+          {
+              "^http(.*?)://([^/]+?)/index.html\\?(.+?)$": "http{{{$1}}}://{{{$2}}}/apps/{{{appname}}}/index.html?{{{$3}}}"
+          },
+          {
+              "^http(.*?)://([^/]+?)/\\?(.+?)$": "http{{{$1}}}://{{{$2}}}/apps/{{{appname}}}/index.html?{{{$3}}}"
+          },
+          {
+              "^http(.*?)://([^/]+?)\\?(.+?)$": "http{{{$1}}}://{{{$2}}}/apps/{{{appname}}}/index.html?{{{$3}}}"
+          }
+      ],
+      "diskCache": {
+          "refresh": 1000,
+          "dontCache": [
+              ".*\\.pdf"
+          ],
+          "maxSizeInMB": "1024",
+          "ignoreAfterMaxHits": 10
+      },
+      "httpdHeaders": {
+          "Cache-Control": "max-age=604800, must-revalidate, private"
+      },
+      "ssl": false,
+      "sslKeyFile": "/home/deep/Documents/SSL/server.key",
+      "sslCertFile": "/home/deep/Documents/SSL/server.crt",
+      "port": 8080,
+      "host": "{{{hostname}}}"
+  }
